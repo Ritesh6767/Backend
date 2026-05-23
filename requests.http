@@ -1,0 +1,32 @@
+### Create an enquiry
+POST http://127.0.0.1:8000/enquiry
+Content-Type: application/json
+
+{
+  "channel": "WhatsApp",
+  "customer_name": "Ritika Sharma",
+  "message": "I want to book a demo for next Monday."
+}
+
+### Schedule a follow-up
+POST http://127.0.0.1:8000/enquiry/1/follow-up
+Content-Type: application/json
+
+{
+  "delay_minutes": 30,
+  "message_template": "Hi {{name}}, checking in on your enquiry."
+}
+
+### Escalate an enquiry
+POST http://127.0.0.1:8000/enquiry/1/escalate
+Content-Type: application/json
+
+{
+  "reason": "Customer asked for a human agent." 
+}
+
+### Get enquiry history
+GET http://127.0.0.1:8000/enquiry/1/history
+
+### Health check
+GET http://127.0.0.1:8000/health
